@@ -31,14 +31,26 @@ function Movie (movieName, movieRating, movieTime) {
 //UI Logic
 function handleFormSubmission(event) {
 event.preventDefault();
-let radioButton = document.querySelector('input[name="movie"]:checked')
+let radioButton = document.querySelector('input[name="movie"]:checked');
+let age = document.querySelector("input#ageId").value;
 // const movie1= document.querySelector("input#wickId").value;
 // const movie2= document.querySelector("input#spiderId").value;
-if (radioButton){
-    console.log("Radio button selected: ", radioButton.value);
-} else {
-    console.log("No radio button selected.")
-}}
+// if (radioButton){
+//     console.log("Radio button selected: ", radioButton.value);
+// } else {
+//     console.log("No radio button selected.")
+// }
+if (radioButton.value === "johnWick" && age < 18){
+    console.log("Sorry you're too young");
+} else if (radioButton.value === "johnWick" && age >=18) {
+    console.log("Enjoy the movie");
+}    else if (radioButton.value == "spiderMan" && age <13){
+    console.log("sorry you're not old enough");
+}   else if (radioButton.value == "spiderMan" && age >=13) {
+        console.log("have fun" );
+    }
+}
+
 
 window.addEventListener("load", function() {
     document.querySelector("form#movieForm").addEventListener("submit",handleFormSubmission);
